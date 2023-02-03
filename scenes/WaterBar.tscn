@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/WaterBar.gd" type="Script" id=1]
+
+[node name="WaterBar" type="ColorRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 1, -1 )
+color = Color( 0.14902, 0, 1, 1 )
+script = ExtResource( 1 )

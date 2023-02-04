@@ -60,6 +60,7 @@ func _ready():
 	randomize()
 	character.register_biome(self)
 	change_biome(Biome.FOREST)
+	#$ParallaxBackground.scroll_offset = Vector2(0, 0) 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -68,3 +69,5 @@ func _process(delta):
 	if progress >= 1.0:
 		change_biome()
 		progress = 0.0
+		
+	$ParallaxBackground.scroll_offset.x = -1000*progress

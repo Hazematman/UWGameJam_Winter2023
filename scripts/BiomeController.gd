@@ -30,6 +30,12 @@ const biome_sounds = {
 	Biome.OCEAN : preload("res://audio/Forest Theme.ogg"),
 }
 
+const biome_graphics = {
+	Biome.FOREST : preload("res://scenes/Forest.tscn"),
+	Biome.DESERT : preload("res://scenes/Forest.tscn"),
+	Biome.OCEAN : preload("res://scenes/Forest.tscn"),
+}
+
 var progress = 0.0
 var current_biome = Biome.FOREST
 
@@ -38,8 +44,24 @@ export(float) var progression_rate = 0.001
 export(NodePath) var node_path
 onready var character = get_node(node_path)
 
+var biome_gfx = []
+
+
 func set_biome_graphic():
-	$ColorRect.color = biome_colors[current_biome]
+	#$ColorRect.color = biome_colors[current_biome]
+	for gfx in biome_gfx:
+		$ParallaxBackground.remove_child(gfx)
+		gfx.queue_free()
+	biome_gfx = []
+	
+	var new_gfx = biome_graphics[current_biome].instance()
+	for child in new_gfx.get_children():
+		new_gfx.remove_child(child)
+		print(child)
+		$ParallaxBackground.add_child(child)
+		biome_gfx.append(new_gfx)
+	
+	$ParallaxBackground.visible = true
 
 func change_biome(biome_type=null):
 	if biome_type == null:

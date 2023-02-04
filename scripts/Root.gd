@@ -53,7 +53,7 @@ func grow_root(type):
 		current_root = type
 		root = root_basic.instance()
 		add_child(root)
-		root.get_node("Area2D").connect("input_event", self, "_on_root_click")
+		#root.get_node("Area2D").connect("input_event", self, "_on_root_click")
 		life = root_lifespan[type]
 	
 func kill_root():

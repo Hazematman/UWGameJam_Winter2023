@@ -14,7 +14,7 @@ enum Biome {
 const biome_drain_rate = {
 	Biome.FOREST : 0.001,
 	Biome.DESERT : 0.1,
-	Biome.OCEAN : 0.01,
+	Biome.OCEAN : 0.005,
 }
 
 const biome_colors = {

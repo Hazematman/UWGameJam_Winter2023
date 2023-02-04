@@ -61,6 +61,7 @@ const root_tree_graphics = {
 }
 
 const audio_insuffcient = preload("res://audio/Not enough nutrients.ogg")
+const audio_grow = preload("res://audio/Nutrient Grow.ogg")
 
 func grow_root(type):
 	assert(root == null, "Can't grow root when one already exists")
@@ -71,6 +72,10 @@ func grow_root(type):
 		root.connect("clicked", self, "_on_root_click")
 		life = root_lifespan[type]
 		tree.grow(root_tree_graphics[current_root])
+		
+		$AudioStreamPlayer.stop()
+		$AudioStreamPlayer.stream = audio_grow
+		$AudioStreamPlayer.play()
 	else:
 		$AudioStreamPlayer.stop()
 		$AudioStreamPlayer.stream = audio_insuffcient

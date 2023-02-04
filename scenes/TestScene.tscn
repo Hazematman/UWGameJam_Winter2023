@@ -34,7 +34,7 @@ layer = 2
 [node name="RootGuy" parent="CanvasLayer3" instance=ExtResource( 2 )]
 
 [node name="Root" parent="CanvasLayer3" instance=ExtResource( 3 )]
-position = Vector2( 625, 571 )
+position = Vector2( 737, 629 )
 card_path = NodePath("../../CanvasLayer4/Cards")
 player_path = NodePath("../RootGuy")
 
@@ -44,7 +44,7 @@ card_path = NodePath("../../CanvasLayer4/Cards")
 player_path = NodePath("../RootGuy")
 
 [node name="Root3" parent="CanvasLayer3" instance=ExtResource( 3 )]
-position = Vector2( 1221, 588 )
+position = Vector2( 1097, 645 )
 card_path = NodePath("../../CanvasLayer4/Cards")
 player_path = NodePath("../RootGuy")
 

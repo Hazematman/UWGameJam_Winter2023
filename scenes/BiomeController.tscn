@@ -48,8 +48,8 @@ motion_scale = Vector2( 2, 1 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource( 4 )
-offset = Vector2( 960, 540 )
+offset = Vector2( 960, 690 )
 
 [node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource( 4 )
-offset = Vector2( 2880, 540 )
+offset = Vector2( 2880, 690 )

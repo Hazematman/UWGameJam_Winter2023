@@ -32,7 +32,7 @@ const biome_sounds = {
 
 const biome_graphics = {
 	Biome.FOREST : preload("res://scenes/Forest.tscn"),
-	Biome.DESERT : preload("res://scenes/Forest.tscn"),
+	Biome.DESERT : preload("res://scenes/Desert.tscn"),
 	Biome.OCEAN : preload("res://scenes/Forest.tscn"),
 }
 
@@ -59,7 +59,7 @@ func set_biome_graphic():
 		new_gfx.remove_child(child)
 		print(child)
 		$ParallaxBackground.add_child(child)
-		biome_gfx.append(new_gfx)
+		biome_gfx.append(child)
 	
 	$ParallaxBackground.visible = true
 
@@ -81,7 +81,7 @@ func change_biome(biome_type=null):
 func _ready():
 	randomize()
 	character.register_biome(self)
-	change_biome(Biome.FOREST)
+	change_biome(current_biome)
 	#$ParallaxBackground.scroll_offset = Vector2(0, 0) 
 
 

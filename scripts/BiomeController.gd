@@ -23,6 +23,12 @@ const biome_colors = {
 	Biome.OCEAN : Color.aqua,
 }
 
+const biome_sounds = {
+	Biome.FOREST : preload("res://audio/Forest Theme.ogg"),
+	Biome.DESERT : preload("res://audio/Forest Theme.ogg"),
+	Biome.OCEAN : preload("res://audio/Forest Theme.ogg"),
+}
+
 var progress = 0.0
 var current_biome = Biome.FOREST
 
@@ -34,15 +40,21 @@ onready var character = get_node(node_path)
 func set_biome_graphic():
 	$ColorRect.color = biome_colors[current_biome]
 
-func change_biome():
-	current_biome = Biome.values()[randi() % Biome.size()]
+func change_biome(biome_type=null):
+	if biome_type == null:
+		current_biome = Biome.values()[randi() % Biome.size()]
+	else:
+		current_biome = biome_type
 	set_biome_graphic()
+	$AudioStreamPlayer.stop()
+	$AudioStreamPlayer.stream = biome_sounds[current_biome]
+	$AudioStreamPlayer.play()
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	character.register_biome(self)
-	set_biome_graphic()
+	change_biome(Biome.FOREST)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

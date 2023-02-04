@@ -57,7 +57,7 @@ const root_asset = {
 const root_tree_graphics = {
 	Root.BASIC : preload("res://assets/tree_clipped.png"),
 	Root.FILTER : preload("res://assets/filter_tree.png"),
-	Root.EATER : preload("res://assets/tree_clipped.png"),
+	Root.EATER : preload("res://assets/carn_tree.png"),
 }
 
 func grow_root(type):

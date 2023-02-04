@@ -27,7 +27,7 @@ const biome_colors = {
 const biome_sounds = {
 	Biome.FOREST : preload("res://audio/Forest Theme.ogg"),
 	Biome.DESERT : preload("res://audio/Desert Theme.ogg"),
-	Biome.OCEAN : preload("res://audio/Forest Theme.ogg"),
+	Biome.OCEAN : preload("res://audio/Ocean Theme.ogg"),
 }
 
 const biome_graphics = {

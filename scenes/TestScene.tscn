@@ -25,6 +25,7 @@ font_data = SubResource( 1 )
 node_path = NodePath("../CanvasLayer3/RootGuy")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 6
 
 [node name="Border" type="Sprite" parent="CanvasLayer"]
 z_index = 10

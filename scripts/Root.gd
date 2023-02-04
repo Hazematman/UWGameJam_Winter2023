@@ -51,7 +51,7 @@ onready var tree = get_node(tree_path)
 const root_asset = {
 	Root.BASIC : preload("res://scenes/RootBasic.tscn"),
 	Root.FILTER : preload("res://scenes/RootFilter.tscn"),
-	Root.EATER : preload("res://scenes/RootBasic.tscn"),
+	Root.EATER : preload("res://scenes/RootEater.tscn"),
 }
 
 const root_tree_graphics = {

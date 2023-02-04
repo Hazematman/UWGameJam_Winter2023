@@ -22,8 +22,8 @@ texture = ExtResource( 1 )
 offset = Vector2( 960, 540 )
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 1762, 239 )
-scale = Vector2( 50, 342 )
+position = Vector2( 1762, 215.5 )
+scale = Vector2( 50, 295 )
 texture = ExtResource( 3 )
 mode = 2
 range_layer_min = 4

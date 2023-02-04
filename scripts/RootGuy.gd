@@ -25,10 +25,11 @@ func create_root(root_cost):
 	return false
 	
 func game_over():
-	print("GAME OVER")
+	get_tree().change_scene("res://scenes/GameOver.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.score = 0.0
 	pass # Replace with function body.
 
 func run_root_logic():
@@ -66,4 +67,6 @@ func _process(delta):
 	if counter >= (1.0 / 20.0):
 		run_root_logic()
 		counter = 0
+		
+	Global.score += delta
 

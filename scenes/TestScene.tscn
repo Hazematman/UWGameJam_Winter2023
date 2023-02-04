@@ -54,16 +54,19 @@ position = Vector2( 1095, 343 )
 position = Vector2( 735, 612 )
 card_path = NodePath("../../CanvasLayer4/Cards")
 player_path = NodePath("../RootGuy")
+tree_path = NodePath("../Tree")
 
 [node name="Root2" parent="CanvasLayer3" instance=ExtResource( 3 )]
 position = Vector2( 930, 631 )
 card_path = NodePath("../../CanvasLayer4/Cards")
 player_path = NodePath("../RootGuy")
+tree_path = NodePath("../Tree2")
 
 [node name="Root3" parent="CanvasLayer3" instance=ExtResource( 3 )]
 position = Vector2( 1103, 629 )
 card_path = NodePath("../../CanvasLayer4/Cards")
 player_path = NodePath("../RootGuy")
+tree_path = NodePath("../Tree3")
 
 [node name="RootGuy" parent="CanvasLayer3" instance=ExtResource( 2 )]
 

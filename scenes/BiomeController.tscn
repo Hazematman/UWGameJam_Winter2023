@@ -53,3 +53,6 @@ offset = Vector2( 960, 690 )
 [node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource( 4 )
 offset = Vector2( 2880, 690 )
+
+[node name="ForegroundParallax" type="ParallaxBackground" parent="."]
+layer = 3

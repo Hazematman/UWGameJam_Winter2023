@@ -45,10 +45,19 @@ onready var card_selector = get_node(card_path)
 export(NodePath) var player_path
 onready var player = get_node(player_path)
 
+export(NodePath) var tree_path
+onready var tree = get_node(tree_path)
+
 const root_asset = {
 	Root.BASIC : preload("res://scenes/RootBasic.tscn"),
 	Root.FILTER : preload("res://scenes/RootFilter.tscn"),
 	Root.EATER : preload("res://scenes/RootBasic.tscn"),
+}
+
+const root_tree_graphics = {
+	Root.BASIC : preload("res://assets/tree_clipped.png"),
+	Root.FILTER : preload("res://assets/filter_tree.png"),
+	Root.EATER : preload("res://assets/tree_clipped.png"),
 }
 
 func grow_root(type):
@@ -59,12 +68,14 @@ func grow_root(type):
 		add_child(root)
 		root.connect("clicked", self, "_on_root_click")
 		life = root_lifespan[type]
+		tree.grow(root_tree_graphics[current_root])
 	
 func kill_root():
 	remove_child(root)
 	root.queue_free()
 	root = null
 	current_root = null
+	tree.kill()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

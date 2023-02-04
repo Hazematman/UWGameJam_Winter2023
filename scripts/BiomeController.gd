@@ -11,13 +11,13 @@ enum Biome {
 	OCEAN,
 }
 
-var biome_drain_rate = {
+const biome_drain_rate = {
 	Biome.FOREST : 0.001,
 	Biome.DESERT : 0.1,
 	Biome.OCEAN : 0.01,
 }
 
-var biome_colors = {
+const biome_colors = {
 	Biome.FOREST : Color.chartreuse,
 	Biome.DESERT : Color.sandybrown,
 	Biome.OCEAN : Color.aqua,
@@ -41,6 +41,7 @@ func change_biome():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	character.register_biome(self)
 	set_biome_graphic()
 
 
@@ -50,5 +51,3 @@ func _process(delta):
 	if progress >= 1.0:
 		change_biome()
 		progress = 0.0
-		
-	character.water -= biome_drain_rate[current_biome]

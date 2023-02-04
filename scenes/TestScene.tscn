@@ -33,15 +33,18 @@ tracking_property = "nutrient"
 
 [node name="Root" parent="." instance=ExtResource( 3 )]
 position = Vector2( 558, 710 )
-node_path = NodePath("../Cards")
+card_path = NodePath("../Cards")
+player_path = NodePath("../RootGuy")
 
 [node name="Root2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1000, 710 )
-node_path = NodePath("../Cards")
+card_path = NodePath("../Cards")
+player_path = NodePath("../RootGuy")
 
 [node name="Root3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1400, 710 )
-node_path = NodePath("../Cards")
+card_path = NodePath("../Cards")
+player_path = NodePath("../RootGuy")
 
 [node name="ProgressBar" parent="." instance=ExtResource( 4 )]
 position = Vector2( 464, 33 )

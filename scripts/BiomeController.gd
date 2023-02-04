@@ -14,7 +14,7 @@ enum Biome {
 
 const biome_drain_rate = {
 	Biome.FOREST : 1.9 * Root.root_gain[Root.Root.BASIC],
-	Biome.DESERT : 2.9 * Root.root_gain[Root.Root.FILTER],
+	Biome.DESERT : 2.5 * Root.root_gain[Root.Root.FILTER],
 	Biome.OCEAN : 1.9 * Root.root_gain[Root.Root.FILTER],
 }
 
@@ -33,7 +33,7 @@ const biome_sounds = {
 const biome_graphics = {
 	Biome.FOREST : preload("res://scenes/Forest.tscn"),
 	Biome.DESERT : preload("res://scenes/Desert.tscn"),
-	Biome.OCEAN : preload("res://scenes/Forest.tscn"),
+	Biome.OCEAN : preload("res://scenes/Ocean.tscn"),
 }
 
 var progress = 0.0
@@ -50,18 +50,15 @@ var biome_gfx = []
 func set_biome_graphic():
 	#$ColorRect.color = biome_colors[current_biome]
 	for gfx in biome_gfx:
-		$ParallaxBackground.remove_child(gfx)
+		$ForegroundParallax.remove_child(gfx)
 		gfx.queue_free()
 	biome_gfx = []
 	
 	var new_gfx = biome_graphics[current_biome].instance()
 	for child in new_gfx.get_children():
 		new_gfx.remove_child(child)
-		print(child)
-		$ParallaxBackground.add_child(child)
+		$ForegroundParallax.add_child(child)
 		biome_gfx.append(child)
-	
-	$ParallaxBackground.visible = true
 
 func change_biome(biome_type=null):
 	if biome_type == null:
@@ -93,3 +90,4 @@ func _process(delta):
 		progress = 0.0
 		
 	$ParallaxBackground.scroll_offset.x = -1000*progress
+	$ForegroundParallax.scroll_offset.x = -1000*progress

@@ -18,7 +18,7 @@ margin_right = 200.0
 margin_bottom = 300.0
 rect_pivot_offset = Vector2( 52, 70 )
 mouse_filter = 2
-color = Color( 0.780392, 0, 1, 1 )
+color = Color( 0.709804, 1, 0, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
@@ -33,7 +33,7 @@ margin_right = 200.0
 margin_bottom = 300.0
 rect_pivot_offset = Vector2( 52, 70 )
 mouse_filter = 2
-color = Color( 0.780392, 0, 1, 1 )
+color = Color( 0.101961, 0, 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 shape = SubResource( 1 )
@@ -48,7 +48,7 @@ margin_right = 200.0
 margin_bottom = 300.0
 rect_pivot_offset = Vector2( 52, 70 )
 mouse_filter = 2
-color = Color( 0.780392, 0, 1, 1 )
+color = Color( 1, 0, 0.0941176, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
 shape = SubResource( 1 )

@@ -12,7 +12,7 @@ enum Root {
 
 const root_gain = {
 	Root.BASIC : 0.001,
-	Root.FILTER : 0.01,
+	Root.FILTER : 0.005,
 	Root.EATER : 0.0
 }
 

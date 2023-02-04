@@ -56,7 +56,6 @@ layer = 4
 visible = false
 
 [node name="ProgressBar" parent="CanvasLayer4" instance=ExtResource( 4 )]
-position = Vector2( 464, 33 )
 node_path = NodePath("../../BiomeController")
 
 [node name="WaterBar" parent="CanvasLayer4" instance=ExtResource( 1 )]

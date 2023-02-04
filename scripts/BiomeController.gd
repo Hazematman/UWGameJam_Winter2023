@@ -1,5 +1,6 @@
 extends Node2D
 
+const Root = preload("res://scripts/Root.gd")
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -12,9 +13,9 @@ enum Biome {
 }
 
 const biome_drain_rate = {
-	Biome.FOREST : 0.001,
-	Biome.DESERT : 0.01,
-	Biome.OCEAN : 0.005,
+	Biome.FOREST : 1.9 * Root.root_gain[Root.Root.BASIC],
+	Biome.DESERT : 2.9 * Root.root_gain[Root.Root.FILTER],
+	Biome.OCEAN : 1.9 * Root.root_gain[Root.Root.FILTER],
 }
 
 const biome_colors = {
@@ -25,7 +26,7 @@ const biome_colors = {
 
 const biome_sounds = {
 	Biome.FOREST : preload("res://audio/Forest Theme.ogg"),
-	Biome.DESERT : preload("res://audio/Forest Theme.ogg"),
+	Biome.DESERT : preload("res://audio/Desert Theme.ogg"),
 	Biome.OCEAN : preload("res://audio/Forest Theme.ogg"),
 }
 

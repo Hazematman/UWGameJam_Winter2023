@@ -39,13 +39,6 @@ func run_root_logic():
 			# Basic roots are useless in ocean
 			if biome.current_biome == Biome.Biome.OCEAN and root.current_root == Root.Root.BASIC:
 				continue
-			# Basic roots are half as effective in the desert
-			elif biome.current_biome == Biome.Biome.DESERT and root.current_root == Root.Root.BASIC:
-				drain = 0.5 * Root.root_gain[root.current_root]
-			# Filter roots are 5 times more effective in the ocean
-			elif biome.current_biome == Biome.Biome.OCEAN and root.current_root == Root.Root.FILTER:
-				drain -= 5*Root.root_gain[root.current_root]
-			# If this is not a special case just use normal root gain rate
 			else:
 				drain -= Root.root_gain[root.current_root]
 				

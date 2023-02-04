@@ -11,7 +11,7 @@ enum Root {
 }
 
 const root_gain = {
-	Root.BASIC : 0.01,
+	Root.BASIC : 0.001,
 	Root.FILTER : 0.01,
 	Root.EATER : 0.0
 }
@@ -19,7 +19,7 @@ const root_gain = {
 const root_grow_rate = {
 	Root.BASIC : 0.001,
 	Root.FILTER : 0.0,
-	Root.EATER : 0.1,
+	Root.EATER : 0.01,
 }
 
 const root_cost = {

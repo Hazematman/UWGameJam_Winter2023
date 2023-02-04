@@ -45,13 +45,17 @@ onready var card_selector = get_node(card_path)
 export(NodePath) var player_path
 onready var player = get_node(player_path)
 
-const root_basic = preload("res://scenes/RootBasic.tscn")
+const root_asset = {
+	Root.BASIC : preload("res://scenes/RootBasic.tscn"),
+	Root.FILTER : preload("res://scenes/RootFilter.tscn"),
+	Root.EATER : preload("res://scenes/RootBasic.tscn"),
+}
 
 func grow_root(type):
 	assert(root == null, "Can't grow root when one already exists")
 	if player.create_root(root_cost[type]):
 		current_root = type
-		root = root_basic.instance()
+		root = root_asset[current_root].instance()
 		add_child(root)
 		root.connect("clicked", self, "_on_root_click")
 		life = root_lifespan[type]

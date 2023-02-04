@@ -12,8 +12,14 @@ enum Root {
 
 const root_gain = {
 	Root.BASIC : 0.001,
-	Root.FILTER : 0.001,
-	Root.EATER : -0.001,
+	Root.FILTER : 0.005,
+	Root.EATER : 0.0
+}
+
+const root_grow_rate = {
+	Root.BASIC : 0.001,
+	Root.FILTER : 0.0,
+	Root.EATER : 0.01,
 }
 
 const root_cost = {
@@ -22,9 +28,16 @@ const root_cost = {
 	Root.EATER : 0.3,
 }
 
+const root_lifespan = {
+	Root.BASIC : 15,
+	Root.FILTER : 10,
+	Root.EATER : 5,
+}
+
 var mouse_over = false
 var root = null
 var current_root = null
+var life = 0
 
 export(NodePath) var card_path
 onready var card_selector = get_node(card_path)
@@ -32,21 +45,37 @@ onready var card_selector = get_node(card_path)
 export(NodePath) var player_path
 onready var player = get_node(player_path)
 
-const root_basic = preload("res://scenes/RootBasic.tscn")
+export(NodePath) var tree_path
+onready var tree = get_node(tree_path)
+
+const root_asset = {
+	Root.BASIC : preload("res://scenes/RootBasic.tscn"),
+	Root.FILTER : preload("res://scenes/RootFilter.tscn"),
+	Root.EATER : preload("res://scenes/RootEater.tscn"),
+}
+
+const root_tree_graphics = {
+	Root.BASIC : preload("res://assets/tree_clipped.png"),
+	Root.FILTER : preload("res://assets/filter_tree.png"),
+	Root.EATER : preload("res://assets/tree_clipped.png"),
+}
 
 func grow_root(type):
 	assert(root == null, "Can't grow root when one already exists")
 	if player.create_root(root_cost[type]):
 		current_root = type
-		root = root_basic.instance()
+		root = root_asset[current_root].instance()
 		add_child(root)
-		root.get_node("Area2D").connect("input_event", self, "_on_root_click")
+		root.connect("clicked", self, "_on_root_click")
+		life = root_lifespan[type]
+		tree.grow(root_tree_graphics[current_root])
 	
 func kill_root():
 	remove_child(root)
 	root.queue_free()
 	root = null
 	current_root = null
+	tree.kill()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -58,14 +87,15 @@ func _input(event):
 			card_selector.set_root(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+func _process(delta):
+	if current_root != null:
+		life -= delta
+		if life <= 0.0:
+			kill_root()
 			
 
-func _on_root_click(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.button_index == BUTTON_RIGHT and event.pressed:
-		kill_root()
-
+func _on_root_click():
+	kill_root()
 
 func _on_RootCollider_mouse_entered():
 	mouse_over = true

@@ -28,9 +28,16 @@ const root_cost = {
 	Root.EATER : 0.3,
 }
 
+const root_lifespan = {
+	Root.BASIC : 15,
+	Root.FILTER : 10,
+	Root.EATER : 5,
+}
+
 var mouse_over = false
 var root = null
 var current_root = null
+var life = 0
 
 export(NodePath) var card_path
 onready var card_selector = get_node(card_path)
@@ -47,6 +54,7 @@ func grow_root(type):
 		root = root_basic.instance()
 		add_child(root)
 		root.get_node("Area2D").connect("input_event", self, "_on_root_click")
+		life = root_lifespan[type]
 	
 func kill_root():
 	remove_child(root)
@@ -64,8 +72,11 @@ func _input(event):
 			card_selector.set_root(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+func _process(delta):
+	if current_root != null:
+		life -= delta
+		if life <= 0.0:
+			kill_root()
 			
 
 func _on_root_click(_viewport, event, _shape_idx):

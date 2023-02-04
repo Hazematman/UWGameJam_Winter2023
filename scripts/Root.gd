@@ -20,6 +20,9 @@ var mouse_over = false
 var root = null
 var state = State.DEFAULT
 
+export(NodePath) var node_path
+onready var card_selector = get_node(node_path)
+
 onready var cards = get_node("Cards")
 
 const root_basic = preload("res://scenes/RootBasic.tscn")
@@ -43,15 +46,11 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
 		if mouse_over and state == State.DEFAULT and root == null:
-			state = State.SELECT_ROOT
+			card_selector.set_root(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	match(state):
-		State.DEFAULT:
-			cards.visible = false
-		State.SELECT_ROOT:
-			cards.visible = true
+	pass
 			
 
 func _on_root_click(_viewport, event, _shape_idx):
@@ -64,17 +63,3 @@ func _on_RootCollider_mouse_entered():
 
 func _on_RootCollider_mouse_exited():
 	mouse_over = false
-
-func _on_Area2D_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
-		grow_root(Root.BASIC)
-
-
-func _on_Area2D2_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
-		grow_root(Root.FILTER)
-
-
-func _on_Area2D3_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
-		grow_root(Root.EATER)

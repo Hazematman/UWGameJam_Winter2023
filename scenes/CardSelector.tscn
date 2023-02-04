@@ -1,6 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/CardSelector.gd" type="Script" id=1]
+[ext_resource path="res://assets/regular tree root 3.png" type="Texture" id=2]
+[ext_resource path="res://assets/filter roots 3.png" type="Texture" id=3]
+[ext_resource path="res://assets/carn roots 3.png" type="Texture" id=4]
+[ext_resource path="res://assets/Paper background.png" type="Texture" id=5]
+[ext_resource path="res://assets/Roots game 1.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 200, 300 )
@@ -12,6 +17,7 @@ script = ExtResource( 1 )
 position = Vector2( 450, 480 )
 
 [node name="ColorRect" type="ColorRect" parent="Area2D"]
+visible = false
 margin_left = -200.0
 margin_top = -300.0
 margin_right = 200.0
@@ -20,13 +26,39 @@ rect_pivot_offset = Vector2( 52, 70 )
 mouse_filter = 2
 color = Color( 0.709804, 1, 0, 1 )
 
+[node name="Sprite2" type="Sprite" parent="Area2D"]
+position = Vector2( -0.49997, -2.43187e-05 )
+scale = Vector2( 0.208854, 0.555556 )
+texture = ExtResource( 5 )
+
+[node name="Sprite3" type="Sprite" parent="Area2D"]
+position = Vector2( -0.499969, -3.05176e-05 )
+scale = Vector2( 0.208854, 0.555556 )
+texture = ExtResource( 6 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Area2D"]
+position = Vector2( -1.00001, 1.00003 )
+scale = Vector2( 4.10309, 4.1831 )
+texture = ExtResource( 2 )
 
 [node name="Area2D2" type="Area2D" parent="."]
 position = Vector2( 950, 480 )
 
+[node name="Sprite2" type="Sprite" parent="Area2D2"]
+position = Vector2( -0.5, -3.05176e-05 )
+scale = Vector2( 0.208854, 0.555556 )
+texture = ExtResource( 5 )
+
+[node name="Sprite3" type="Sprite" parent="Area2D2"]
+position = Vector2( -0.5, -3.05176e-05 )
+scale = Vector2( 0.208854, 0.555556 )
+texture = ExtResource( 6 )
+
 [node name="ColorRect" type="ColorRect" parent="Area2D2"]
+visible = false
 margin_left = -200.0
 margin_top = -300.0
 margin_right = 200.0
@@ -38,10 +70,26 @@ color = Color( 0.101961, 0, 1, 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 shape = SubResource( 1 )
 
+[node name="Sprite" type="Sprite" parent="Area2D2"]
+position = Vector2( -1.00001, 1.00003 )
+scale = Vector2( 4.10309, 4.1831 )
+texture = ExtResource( 3 )
+
 [node name="Area2D3" type="Area2D" parent="."]
 position = Vector2( 1450, 480 )
 
+[node name="Sprite2" type="Sprite" parent="Area2D3"]
+position = Vector2( -0.5, -3.05176e-05 )
+scale = Vector2( 0.208854, 0.555556 )
+texture = ExtResource( 5 )
+
+[node name="Sprite3" type="Sprite" parent="Area2D3"]
+position = Vector2( -0.5, -3.05176e-05 )
+scale = Vector2( 0.208854, 0.555556 )
+texture = ExtResource( 6 )
+
 [node name="ColorRect" type="ColorRect" parent="Area2D3"]
+visible = false
 margin_left = -200.0
 margin_top = -300.0
 margin_right = 200.0
@@ -52,6 +100,11 @@ color = Color( 1, 0, 0.0941176, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
 shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Area2D3"]
+position = Vector2( -1.00001, 1.00003 )
+scale = Vector2( 4.10309, 4.1831 )
+texture = ExtResource( 4 )
 
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
 [connection signal="input_event" from="Area2D2" to="." method="_on_Area2D2_input_event"]

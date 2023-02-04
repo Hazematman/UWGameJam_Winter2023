@@ -73,6 +73,8 @@ color = Color( 0.780392, 0, 1, 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cards/Area2D3"]
 shape = SubResource( 2 )
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="mouse_entered" from="RootCollider" to="." method="_on_RootCollider_mouse_entered"]
 [connection signal="mouse_exited" from="RootCollider" to="." method="_on_RootCollider_mouse_exited"]
 [connection signal="input_event" from="Cards/Area2D" to="." method="_on_Area2D_input_event"]

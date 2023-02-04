@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Not enough nutrients.ogg-19e9c00f148e80af0cf3b8999aee409f.oggstr"
+
+[deps]
+
+source_file="res://audio/Not enough nutrients.ogg"
+dest_files=[ "res://.import/Not enough nutrients.ogg-19e9c00f148e80af0cf3b8999aee409f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

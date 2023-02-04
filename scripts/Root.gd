@@ -60,6 +60,8 @@ const root_tree_graphics = {
 	Root.EATER : preload("res://assets/carn_tree.png"),
 }
 
+const audio_insuffcient = preload("res://audio/Not enough nutrients.ogg")
+
 func grow_root(type):
 	assert(root == null, "Can't grow root when one already exists")
 	if player.create_root(root_cost[type]):
@@ -69,6 +71,10 @@ func grow_root(type):
 		root.connect("clicked", self, "_on_root_click")
 		life = root_lifespan[type]
 		tree.grow(root_tree_graphics[current_root])
+	else:
+		$AudioStreamPlayer.stop()
+		$AudioStreamPlayer.stream = audio_insuffcient
+		$AudioStreamPlayer.play()
 	
 func kill_root():
 	remove_child(root)

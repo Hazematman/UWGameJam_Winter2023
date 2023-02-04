@@ -19,7 +19,7 @@ font_path = "res://assets/QTLondonScroll.otf"
 size = 72
 font_data = SubResource( 1 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
 [node name="BiomeController" parent="." instance=ExtResource( 5 )]
 node_path = NodePath("../CanvasLayer3/RootGuy")

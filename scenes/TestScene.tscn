@@ -8,6 +8,9 @@
 
 [node name="Node2D" type="Node2D"]
 
+[node name="BiomeController" parent="." instance=ExtResource( 5 )]
+node_path = NodePath("../RootGuy")
+
 [node name="RootGuy" parent="." instance=ExtResource( 2 )]
 
 [node name="WaterBar" parent="." instance=ExtResource( 1 )]
@@ -33,6 +36,3 @@ position = Vector2( 558, 710 )
 [node name="ProgressBar" parent="." instance=ExtResource( 4 )]
 position = Vector2( 464, 33 )
 node_path = NodePath("../BiomeController")
-
-[node name="BiomeController" parent="." instance=ExtResource( 5 )]
-node_path = NodePath("../RootGuy")

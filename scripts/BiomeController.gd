@@ -13,7 +13,7 @@ enum Biome {
 
 const biome_drain_rate = {
 	Biome.FOREST : 0.001,
-	Biome.DESERT : 0.1,
+	Biome.DESERT : 0.01,
 	Biome.OCEAN : 0.005,
 }
 
@@ -42,7 +42,10 @@ func set_biome_graphic():
 
 func change_biome(biome_type=null):
 	if biome_type == null:
-		current_biome = Biome.values()[randi() % Biome.size()]
+		var new_biome = null
+		while new_biome == null or new_biome == current_biome:
+			new_biome = Biome.values()[randi() % Biome.size()]
+		current_biome = new_biome
 	else:
 		current_biome = biome_type
 	set_biome_graphic()
@@ -53,6 +56,7 @@ func change_biome(biome_type=null):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	randomize()
 	character.register_biome(self)
 	change_biome(Biome.FOREST)
 

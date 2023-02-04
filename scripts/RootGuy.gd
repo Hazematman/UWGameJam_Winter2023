@@ -31,21 +31,25 @@ func game_over():
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func run_root_logic():
 	var drain = 0
+	var grow = 0
 	for root in roots:
 		if root.current_root != null:
 			# Basic roots are useless in ocean
 			if biome.current_biome == Biome.Biome.OCEAN and root.current_root == Root.Root.BASIC:
 				continue
+			# Basic roots are half as effective in the desert
+			elif biome.current_biome == Biome.Biome.DESERT and root.current_root == Root.Root.BASIC:
+				drain = 0.5 * Root.root_gain[root.current_root]
 			# Filter roots are 5 times more effective in the ocean
 			elif biome.current_biome == Biome.Biome.OCEAN and root.current_root == Root.Root.FILTER:
 				drain -= 5*Root.root_gain[root.current_root]
 			# If this is not a special case just use normal root gain rate
 			else:
 				drain -= Root.root_gain[root.current_root]
+				
+			grow += Root.root_grow_rate[root.current_root]
 		
 	drain += Biome.biome_drain_rate[biome.current_biome]
 	
@@ -56,3 +60,17 @@ func _process(_delta):
 	elif water <= 0.0:
 		water = 0.0
 		game_over()
+		
+	nutrient += grow
+	if nutrient >= 1.0:
+		nutrient = 1.0
+		
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+var counter = 0
+func _process(delta):
+	counter += delta
+	
+	if counter >= (1.0 / 20.0):
+		run_root_logic()
+		counter = 0
+

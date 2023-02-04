@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/WaterBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/RootGuy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Root.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/ProgressBar.tscn" type="PackedScene" id=4]
 
 [node name="Node2D" type="Node2D"]
 
@@ -27,3 +28,7 @@ tracking_property = "nutrient"
 
 [node name="Root" parent="." instance=ExtResource( 3 )]
 position = Vector2( 558, 710 )
+
+[node name="ProgressBar" parent="." instance=ExtResource( 4 )]
+position = Vector2( 464, 33 )
+node_path = NodePath("../RootGuy")

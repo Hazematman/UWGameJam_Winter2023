@@ -6,6 +6,7 @@ extends Node2D
 # var b = "text"
 var health = 1.0
 var nutrient = 1.0
+var progress = 0.0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,3 +27,7 @@ func _process(delta):
 		nutrient = nutrient - 0.01
 		if nutrient < 0:
 			nutrient = 1.0
+			
+	progress += 0.001
+	if progress > 1.0:
+		progress = 0

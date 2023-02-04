@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/WaterBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/RootGuy.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/CardSelector.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/Paper background.png" type="Texture" id=7]
 [ext_resource path="res://assets/Roots game 1.png" type="Texture" id=8]
+[ext_resource path="res://scenes/NBar.tscn" type="PackedScene" id=9]
 
 [node name="Node2D" type="Node2D"]
 
@@ -55,22 +56,12 @@ layer = 4
 visible = false
 
 [node name="ProgressBar" parent="CanvasLayer4" instance=ExtResource( 4 )]
-position = Vector2( 464, 33 )
 node_path = NodePath("../../BiomeController")
 
-[node name="NBar" parent="CanvasLayer4" instance=ExtResource( 1 )]
-margin_left = 1714.0
-margin_top = 346.0
-margin_right = 1754.0
-margin_bottom = 646.0
-color = Color( 1, 0.533333, 0.0352941, 1 )
-node_path = NodePath("../../CanvasLayer3/RootGuy")
-tracking_property = "nutrient"
-
 [node name="WaterBar" parent="CanvasLayer4" instance=ExtResource( 1 )]
-margin_left = 1634.0
-margin_top = 346.0
-margin_right = 1674.0
-margin_bottom = 646.0
 node_path = NodePath("../../CanvasLayer3/RootGuy")
 tracking_property = "water"
+
+[node name="NBar" parent="CanvasLayer4" instance=ExtResource( 9 )]
+node_path = NodePath("../../CanvasLayer3/RootGuy")
+tracking_property = "nutrient"

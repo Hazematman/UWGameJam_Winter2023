@@ -29,7 +29,7 @@ func _process(delta):
 func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed \
 		and current_root != null:
-		current_root.grow_root(Root.Root.FILTER)
+		current_root.grow_root(Root.Root.BASIC)
 		currently_visible = false
 		current_root = null
 
@@ -44,6 +44,6 @@ func _on_Area2D2_input_event(_viewport, event, _shape_idx):
 func _on_Area2D3_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed \
 		and current_root != null:
-		current_root.grow_root(Root.Root.FILTER)
+		current_root.grow_root(Root.Root.EATER)
 		currently_visible = false
 		current_root = null

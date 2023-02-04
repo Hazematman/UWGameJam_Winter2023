@@ -18,6 +18,12 @@ func register_root(root):
 func register_biome(biome_node):
 	biome = biome_node
 	
+func create_root(root_cost):
+	if nutrient - root_cost > 0.0:
+		nutrient -= root_cost
+		return true
+	return false
+	
 func game_over():
 	print("GAME OVER")
 
@@ -26,20 +32,12 @@ func _ready():
 	pass # Replace with function body.
 
 
-var track = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	# Code here right now is to simulate health bars
-	track += delta
-	
-	nutrient = nutrient - 0.01
-	if nutrient < 0:
-		nutrient = 1.0
-	
+func _process(_delta):
 	var drain = 0
 	for root in roots:
 		if root.current_root != null:
-			drain -= Root.root_drain[root.current_root]
+			drain -= Root.root_gain[root.current_root]
 		
 	drain += Biome.biome_drain_rate[biome.current_biome]
 	

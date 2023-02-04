@@ -10,10 +10,16 @@ enum Root {
 	EATER,
 }
 
-const root_drain = {
+const root_gain = {
 	Root.BASIC : 0.001,
 	Root.FILTER : 0.001,
 	Root.EATER : -0.001,
+}
+
+const root_cost = {
+	Root.BASIC : 0.1,
+	Root.FILTER : 0.2,
+	Root.EATER : 0.3,
 }
 
 var mouse_over = false
@@ -30,10 +36,11 @@ const root_basic = preload("res://scenes/RootBasic.tscn")
 
 func grow_root(type):
 	assert(root == null, "Can't grow root when one already exists")
-	current_root = type
-	root = root_basic.instance()
-	add_child(root)
-	root.get_node("Area2D").connect("input_event", self, "_on_root_click")
+	if player.create_root(root_cost[type]):
+		current_root = type
+		root = root_basic.instance()
+		add_child(root)
+		root.get_node("Area2D").connect("input_event", self, "_on_root_click")
 	
 func kill_root():
 	remove_child(root)

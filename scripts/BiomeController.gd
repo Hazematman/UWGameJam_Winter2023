@@ -57,7 +57,6 @@ func set_biome_graphic():
 	var new_gfx = biome_graphics[current_biome].instance()
 	for child in new_gfx.get_children():
 		new_gfx.remove_child(child)
-		print(child)
 		$ParallaxBackground.add_child(child)
 		biome_gfx.append(child)
 	

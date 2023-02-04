@@ -9,6 +9,7 @@ extents = Vector2( 20, 20 )
 extents = Vector2( 50, 75 )
 
 [node name="Root" type="Node2D"]
+z_index = 1
 script = ExtResource( 1 )
 
 [node name="RootCollider" type="Area2D" parent="."]

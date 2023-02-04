@@ -14,7 +14,7 @@ enum Biome {
 
 const biome_drain_rate = {
 	Biome.FOREST : 1.9 * Root.root_gain[Root.Root.BASIC],
-	Biome.DESERT : 2.9 * Root.root_gain[Root.Root.FILTER],
+	Biome.DESERT : 2.5 * Root.root_gain[Root.Root.FILTER],
 	Biome.OCEAN : 1.9 * Root.root_gain[Root.Root.FILTER],
 }
 
@@ -33,7 +33,7 @@ const biome_sounds = {
 const biome_graphics = {
 	Biome.FOREST : preload("res://scenes/Forest.tscn"),
 	Biome.DESERT : preload("res://scenes/Desert.tscn"),
-	Biome.OCEAN : preload("res://scenes/Forest.tscn"),
+	Biome.OCEAN : preload("res://scenes/Ocean.tscn"),
 }
 
 var progress = 0.0

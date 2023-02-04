@@ -1,19 +1,81 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/RootBasic.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20, 209 )
+extents = Vector2( 20, 50 )
 
 [node name="RootBasic" type="Node2D"]
+script = ExtResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="TopAnchor" type="RigidBody2D" parent="."]
+mode = 1
 
-[node name="ColorRect" type="ColorRect" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopAnchor"]
+shape = SubResource( 2 )
+
+[node name="Top" type="RigidBody2D" parent="."]
+linear_damp = 0.0
+angular_damp = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
+position = Vector2( 0, 50 )
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Top/CollisionShape2D"]
 margin_left = -20.0
+margin_top = -50.0
 margin_right = 20.0
-margin_bottom = 418.0
+margin_bottom = 50.0
 mouse_filter = 2
 color = Color( 0.321569, 0.239216, 0.14902, 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 0, 209 )
+[node name="Mid" type="RigidBody2D" parent="."]
+position = Vector2( 0, 100 )
+linear_damp = 0.0
+angular_damp = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mid"]
+position = Vector2( 0, 50 )
 shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Mid/CollisionShape2D"]
+margin_left = -20.0
+margin_top = -50.0
+margin_right = 20.0
+margin_bottom = 50.0
+mouse_filter = 2
+color = Color( 0.321569, 0.239216, 0.14902, 1 )
+
+[node name="Bot" type="RigidBody2D" parent="."]
+position = Vector2( 0, 200 )
+linear_damp = 0.0
+angular_damp = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bot"]
+position = Vector2( 0, 50 )
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Bot/CollisionShape2D"]
+margin_left = -20.0
+margin_top = -50.0
+margin_right = 20.0
+margin_bottom = 50.0
+mouse_filter = 2
+color = Color( 0.321569, 0.239216, 0.14902, 1 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2( 0, 100 )
+node_a = NodePath("../Top")
+node_b = NodePath("../Mid")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2( 0, 200 )
+node_a = NodePath("../Mid")
+node_b = NodePath("../Bot")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+node_a = NodePath("../TopAnchor")
+node_b = NodePath("../Top")

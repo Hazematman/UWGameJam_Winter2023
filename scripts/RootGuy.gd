@@ -88,4 +88,6 @@ func _process(delta):
 		anim = 0
 		
 	position.y = 40*sin(anim*2*PI)
+	$BackFlipper.rotation_degrees = range_lerp(sin(anim*2*PI), -1, 1, -30, 30)
+	$FrontFlipper.rotation_degrees = range_lerp(sin(anim*2*PI), -1, 1, -30, 30)
 

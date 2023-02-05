@@ -57,6 +57,7 @@ z_index = 0
 card_path = NodePath("../../../CanvasLayer4/Cards")
 player_path = NodePath("..")
 tree_path = NodePath("../Tree2")
+tree_index = 1
 
 [node name="Root3" parent="CanvasLayer3/RootGuy" instance=ExtResource( 3 )]
 position = Vector2( 1103, 629 )
@@ -64,6 +65,7 @@ z_index = 0
 card_path = NodePath("../../../CanvasLayer4/Cards")
 player_path = NodePath("..")
 tree_path = NodePath("../Tree3")
+tree_index = 2
 
 [node name="Tree3" parent="CanvasLayer3/RootGuy" instance=ExtResource( 10 )]
 position = Vector2( 1095, 343 )

@@ -50,6 +50,7 @@ player_path = NodePath("..")
 tree_path = NodePath("../Tree3")
 can_click = false
 can_die = false
+tree_index = 2
 
 [node name="Root2" parent="CanvasLayer2/RootGuy" instance=ExtResource( 8 )]
 position = Vector2( 930, 631 )
@@ -58,6 +59,7 @@ player_path = NodePath("..")
 tree_path = NodePath("../Tree2")
 can_click = false
 can_die = false
+tree_index = 1
 
 [node name="Root" parent="CanvasLayer2/RootGuy" instance=ExtResource( 8 )]
 position = Vector2( 735, 612 )

@@ -59,15 +59,28 @@ const root_asset = {
 	Root.EATER : preload("res://scenes/RootEater.tscn"),
 }
 
-const root_tree_graphics = {
+const root_tree_graphics = [{
 	Root.BASIC : preload("res://assets/tree_clipped.png"),
-	Root.FILTER : preload("res://assets/filter_tree.png"),
+	Root.FILTER : preload("res://assets/filter tree back.png"),
 	Root.EATER : preload("res://assets/carn_tree.png"),
-}
+},
+{
+	Root.BASIC : preload("res://assets/regular tree middle.png"),
+	Root.FILTER : preload("res://assets/filter_tree.png"),
+	Root.EATER : preload("res://assets/carn tree middle.png"),
+},
+{
+	Root.BASIC : preload("res://assets/regular tree front.png"),
+	Root.FILTER : preload("res://assets/filter tree front.png"),
+	Root.EATER : preload("res://assets/carn tree front.png"),
+},
+]
 
 const audio_insuffcient = preload("res://audio/Not enough nutrients.ogg")
 const audio_grow = preload("res://audio/Nutrient Grow.ogg")
 const audio_cut = preload("res://audio/Cut Root.ogg")
+
+export(int) var tree_index = 0
 
 func grow_root(type):
 	assert(root == null, "Can't grow root when one already exists")
@@ -77,7 +90,7 @@ func grow_root(type):
 		add_child(root)
 		root.connect("clicked", self, "_on_root_click")
 		life = root_lifespan[type]
-		tree.grow(root_tree_graphics[current_root])
+		tree.grow(root_tree_graphics[tree_index][current_root])
 		
 		$AudioStreamPlayer.stop()
 		$AudioStreamPlayer.stream = audio_grow

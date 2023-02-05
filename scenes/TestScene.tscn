@@ -42,34 +42,40 @@ offset = Vector2( 960, 540 )
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="Tree" parent="CanvasLayer3" instance=ExtResource( 10 )]
-position = Vector2( 652, 342 )
+[node name="RootGuy" parent="CanvasLayer3" instance=ExtResource( 2 )]
 
-[node name="Tree2" parent="CanvasLayer3" instance=ExtResource( 10 )]
-position = Vector2( 904, 326 )
-
-[node name="Tree3" parent="CanvasLayer3" instance=ExtResource( 10 )]
-position = Vector2( 1095, 343 )
-
-[node name="Root" parent="CanvasLayer3" instance=ExtResource( 3 )]
+[node name="Root" parent="CanvasLayer3/RootGuy" instance=ExtResource( 3 )]
 position = Vector2( 735, 612 )
-card_path = NodePath("../../CanvasLayer4/Cards")
-player_path = NodePath("../RootGuy")
+z_index = 0
+card_path = NodePath("../../../CanvasLayer4/Cards")
+player_path = NodePath("..")
 tree_path = NodePath("../Tree")
 
-[node name="Root2" parent="CanvasLayer3" instance=ExtResource( 3 )]
+[node name="Root2" parent="CanvasLayer3/RootGuy" instance=ExtResource( 3 )]
 position = Vector2( 930, 631 )
-card_path = NodePath("../../CanvasLayer4/Cards")
-player_path = NodePath("../RootGuy")
+z_index = 0
+card_path = NodePath("../../../CanvasLayer4/Cards")
+player_path = NodePath("..")
 tree_path = NodePath("../Tree2")
 
-[node name="Root3" parent="CanvasLayer3" instance=ExtResource( 3 )]
+[node name="Root3" parent="CanvasLayer3/RootGuy" instance=ExtResource( 3 )]
 position = Vector2( 1103, 629 )
-card_path = NodePath("../../CanvasLayer4/Cards")
-player_path = NodePath("../RootGuy")
+z_index = 0
+card_path = NodePath("../../../CanvasLayer4/Cards")
+player_path = NodePath("..")
 tree_path = NodePath("../Tree3")
 
-[node name="RootGuy" parent="CanvasLayer3" instance=ExtResource( 2 )]
+[node name="Tree3" parent="CanvasLayer3/RootGuy" instance=ExtResource( 10 )]
+position = Vector2( 1095, 343 )
+z_index = -1
+
+[node name="Tree2" parent="CanvasLayer3/RootGuy" instance=ExtResource( 10 )]
+position = Vector2( 904, 326 )
+z_index = -1
+
+[node name="Tree" parent="CanvasLayer3/RootGuy" instance=ExtResource( 10 )]
+position = Vector2( 652, 342 )
+z_index = -1
 
 [node name="CanvasLayer4" type="CanvasLayer" parent="."]
 layer = 4

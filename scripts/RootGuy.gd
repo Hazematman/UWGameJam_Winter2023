@@ -62,6 +62,8 @@ func run_root_logic():
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 var counter = 0
+var anim = 0
+const anim_rate = 0.3
 func _process(delta):
 	counter += delta
 	
@@ -70,4 +72,11 @@ func _process(delta):
 		counter = 0
 		
 	Global.score += delta
+	
+	
+	anim += delta*anim_rate
+	if anim >= 1.0:
+		anim = 0
+		
+	position.y = 40*sin(anim*2*PI)
 

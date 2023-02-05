@@ -39,6 +39,8 @@ var root = null
 var current_root = null
 var life = 0
 
+# Use more complicated logic on the card path because we want it to
+# be null when we use roots in the tutorial
 export(NodePath) var card_path = null
 onready var card_selector = get_node(card_path) if card_path != null else null
 

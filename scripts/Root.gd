@@ -19,7 +19,7 @@ const root_gain = {
 const root_grow_rate = {
 	Root.BASIC : 0.001,
 	Root.FILTER : 0.0,
-	Root.EATER : 0.003,
+	Root.EATER : 0.006,
 }
 
 const root_cost = {

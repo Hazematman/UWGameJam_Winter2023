@@ -16,7 +16,7 @@ var text = [
 	"You can right click on my roots to remove them",
 	"If you wait, my roots will wither away",
 	"The forest is safe, my basic roots will work there",
-	"The ocean is more dangerous, you will need to\ncombine filtering roots and basic roots",
+	"The ocean is more dangerous, you will need to\ncombine filtering roots and carnivorous roots",
 	"The desert is very dangerous, only filtering\nroots can provide water there",
 	"If I run out of water I will die",
 	"Please help me complete my journey safely",

@@ -13,6 +13,7 @@ var text = [
 	"My filtering roots will provide me with lots of water\nbut no nutrients",
 	"My carnivorous roots will eat everything in sight,\ngiving me lots of nutrients but no water",
 	"You can left click on my belly to grow roots\nthis will cost me nutrients",
+	"Without nutrients, I will not be able\nto grow any roots",
 	"You can right click on my roots to remove them",
 	"If you wait, my roots will wither away",
 	"The forest is safe, my basic roots will work there",
@@ -20,6 +21,7 @@ var text = [
 	"The desert is very dangerous, only filtering\nroots can provide water there",
 	"If I run out of water I will die",
 	"Please help me complete my journey safely",
+	"Are you ready? Click anywhere to begin",
 ]
 
 # Called when the node enters the scene tree for the first time.
@@ -60,11 +62,11 @@ func _input(event):
 			$CanvasLayer2/RootGuy/Root2.kill_root()
 			$CanvasLayer2/RootGuy/Root3.kill_root()
 			$CanvasLayer5/Node2D3.visible = true
-		elif slide == 10:
-			$CanvasLayer/BiomeController.change_biome(Biome.Biome.OCEAN)
 		elif slide == 11:
-			$CanvasLayer/BiomeController.change_biome(Biome.Biome.DESERT)
+			$CanvasLayer/BiomeController.change_biome(Biome.Biome.OCEAN)
 		elif slide == 12:
+			$CanvasLayer/BiomeController.change_biome(Biome.Biome.DESERT)
+		elif slide == 13:
 			$CanvasLayer5/Node2D2.visible = true
 			
 		$CanvasLayer5/RichTextLabel.text = text[slide]

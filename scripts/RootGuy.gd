@@ -12,6 +12,9 @@ var nutrient = 1.0
 var roots = []
 var biome = null
 
+var tick_rate =  20.0
+var max_tick_rate = 60.0
+
 func register_root(root):
 	roots.append(root)
 	
@@ -45,6 +48,7 @@ func run_root_logic():
 			drain -= Root.root_gain[root.current_root]
 				
 			grow += Root.root_grow_rate[root.current_root]
+			root.tick()
 		
 	drain += Biome.biome_drain_rate[biome.current_biome]
 	
@@ -60,6 +64,11 @@ func run_root_logic():
 	if nutrient >= 1.0:
 		nutrient = 1.0
 		
+func increase_tick_rate():
+	tick_rate += 5
+	if tick_rate >= max_tick_rate:
+		tick_rate = max_tick_rate
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 var counter = 0
 var anim = 0
@@ -67,7 +76,7 @@ const anim_rate = 0.3
 func _process(delta):
 	counter += delta
 	
-	if counter >= (1.0 / 20.0):
+	if counter >= (1.0 / tick_rate):
 		run_root_logic()
 		counter = 0
 		

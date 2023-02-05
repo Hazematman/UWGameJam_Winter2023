@@ -25,6 +25,7 @@ func create_root(root_cost):
 	return false
 	
 func game_over():
+	# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://scenes/GameOver.tscn")
 
 # Called when the node enters the scene tree for the first time.

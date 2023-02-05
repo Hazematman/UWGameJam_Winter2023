@@ -13,7 +13,7 @@ enum Biome {
 }
 
 const biome_drain_rate = {
-	Biome.FOREST : 1.9 * Root.root_gain[Root.Root.BASIC],
+	Biome.FOREST : 2.5 * Root.root_gain[Root.Root.BASIC],
 	Biome.DESERT : 1.0 * Root.root_gain[Root.Root.BASIC] + 1.5 * Root.root_gain[Root.Root.FILTER],
 	Biome.OCEAN : 2.0 * Root.root_gain[Root.Root.BASIC] + 1.0 * Root.root_gain[Root.Root.FILTER],
 }
@@ -71,6 +71,7 @@ func change_biome(biome_type=null):
 	$AudioStreamPlayer.stop()
 	$AudioStreamPlayer.stream = biome_sounds[current_biome]
 	$AudioStreamPlayer.play()
+	character.increase_tick_rate()
 
 
 # Called when the node enters the scene tree for the first time.

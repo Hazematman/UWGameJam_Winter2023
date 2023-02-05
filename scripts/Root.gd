@@ -19,19 +19,19 @@ const root_gain = {
 const root_grow_rate = {
 	Root.BASIC : 0.001,
 	Root.FILTER : 0.0,
-	Root.EATER : 0.01,
+	Root.EATER : 0.003,
 }
 
 const root_cost = {
 	Root.BASIC : 0.1,
-	Root.FILTER : 0.4,
-	Root.EATER : 0.4,
+	Root.FILTER : 0.3,
+	Root.EATER : 0.3,
 }
 
 const root_lifespan = {
-	Root.BASIC : 15,
-	Root.FILTER : 10,
-	Root.EATER : 5,
+	Root.BASIC : 10*30,
+	Root.FILTER : 5*30,
+	Root.EATER : 3*30,
 }
 
 var mouse_over = false
@@ -105,11 +105,13 @@ func _input(event):
 	if can_click and event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
 		if mouse_over and root == null:
 			card_selector.set_root(self)
+			
+func tick():
+	life -= 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if current_root != null:
-		life -= delta
 		if can_die and life <= 0.0:
 			kill_root()
 			

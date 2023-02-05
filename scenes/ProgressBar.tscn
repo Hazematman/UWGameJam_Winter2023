@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/ProgressBar.gd" type="Script" id=1]
 [ext_resource path="res://assets/biome progress bar.png" type="Texture" id=2]
+[ext_resource path="res://assets/progress indicator.png" type="Texture" id=3]
 
 [node name="ProgressBar" type="Node2D"]
 script = ExtResource( 1 )
@@ -18,9 +19,6 @@ margin_right = 1479.0
 margin_bottom = 92.0
 color = Color( 0.921569, 1, 0, 1 )
 
-[node name="Mover" type="ColorRect" parent="."]
-margin_left = 469.0
-margin_top = 52.0
-margin_right = 509.0
-margin_bottom = 92.0
-color = Color( 1, 0, 0, 1 )
+[node name="Mover" type="Sprite" parent="."]
+position = Vector2( 486, 68 )
+texture = ExtResource( 3 )

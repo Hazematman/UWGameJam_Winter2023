@@ -17,11 +17,11 @@ var end_position = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	start_position = bar.rect_global_position.x
-	end_position = bar.rect_global_position.x + bar.rect_size.x - mover.rect_size.x
+	end_position = bar.rect_global_position.x + bar.rect_size.x - mover.texture.get_width()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var progress = source_node.progress
 	
-	mover.rect_global_position.x = lerp(start_position, end_position, progress)
+	mover.position.x = lerp(start_position, end_position, progress)

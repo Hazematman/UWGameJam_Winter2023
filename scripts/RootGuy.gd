@@ -64,6 +64,11 @@ func run_root_logic():
 	if nutrient >= 1.0:
 		nutrient = 1.0
 		
+func refund(amt):
+	nutrient += amt
+	if nutrient >= 1.0:
+		nutrient = 1.0
+		
 func increase_tick_rate():
 	tick_rate += 5
 	if tick_rate >= max_tick_rate:

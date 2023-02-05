@@ -14,7 +14,7 @@ var text = [
 	"My carnivorous roots will eat everything in sight,\ngiving me lots of nutrients but no water",
 	"You can left click on my belly to grow roots\nthis will cost me nutrients",
 	"Without nutrients, I will not be able\nto grow any roots",
-	"You can right click on my roots to remove them",
+	"You can right click on my roots to remove them\nand give me back some nutrients",
 	"If you wait, my roots will wither away",
 	"The forest is safe, my basic roots will work there",
 	"The ocean is more dangerous, you will need to\ncombine filtering roots and carnivorous roots",

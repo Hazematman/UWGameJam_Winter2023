@@ -130,6 +130,7 @@ func _process(_delta):
 			
 
 func _on_root_click():
+	player.refund(root_cost[current_root]/2.0)
 	kill_root()
 
 func _on_RootCollider_mouse_entered():

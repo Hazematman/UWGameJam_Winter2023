@@ -124,14 +124,15 @@ func tick():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if current_root != null:
+	if root != null:
 		if can_die and life <= 0.0:
 			kill_root()
 			
 
 func _on_root_click():
-	player.refund(root_cost[current_root]/2.0)
-	kill_root()
+	if current_root != null:
+		player.refund(root_cost[current_root]/2.0)
+		kill_root()
 
 func _on_RootCollider_mouse_entered():
 	mouse_over = true

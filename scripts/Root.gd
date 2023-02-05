@@ -66,6 +66,7 @@ const root_tree_graphics = {
 
 const audio_insuffcient = preload("res://audio/Not enough nutrients.ogg")
 const audio_grow = preload("res://audio/Nutrient Grow.ogg")
+const audio_cut = preload("res://audio/Cut Root.ogg")
 
 func grow_root(type):
 	assert(root == null, "Can't grow root when one already exists")
@@ -92,6 +93,10 @@ func kill_root():
 		root = null
 		current_root = null
 		tree.kill()
+		
+		$AudioStreamPlayer.stop()
+		$AudioStreamPlayer.stream = audio_cut
+		$AudioStreamPlayer.play()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

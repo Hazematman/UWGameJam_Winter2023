@@ -50,7 +50,6 @@ var biome_gfx = []
 func set_biome_graphic():
 	#$ColorRect.color = biome_colors[current_biome]
 	for gfx in biome_gfx:
-		$ForegroundParallax.remove_child(gfx)
 		gfx.queue_free()
 	biome_gfx = []
 	

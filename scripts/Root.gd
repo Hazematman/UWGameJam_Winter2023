@@ -88,15 +88,13 @@ func grow_root(type):
 	
 func kill_root():
 	if root != null:
-		remove_child(root)
-		root.queue_free()
-		root = null
-		current_root = null
 		tree.kill()
-		
 		$AudioStreamPlayer.stop()
 		$AudioStreamPlayer.stream = audio_cut
 		$AudioStreamPlayer.play()
+		root.queue_free()
+		root = null
+		current_root = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

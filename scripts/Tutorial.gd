@@ -28,29 +28,29 @@ func _input(event):
 			get_tree().change_scene("res://scenes/TestScene.tscn")
 			return
 		elif slide == 3:
-			$CanvasLayer2/Root.grow_root(Root.Root.BASIC)
-			$CanvasLayer2/Root2.grow_root(Root.Root.BASIC)
-			$CanvasLayer2/Root3.grow_root(Root.Root.BASIC)
+			$CanvasLayer2/RootGuy/Root.grow_root(Root.Root.BASIC)
+			$CanvasLayer2/RootGuy/Root2.grow_root(Root.Root.BASIC)
+			$CanvasLayer2/RootGuy/Root3.grow_root(Root.Root.BASIC)
 		elif slide == 4:
-			$CanvasLayer2/Root.kill_root()
-			$CanvasLayer2/Root2.kill_root()
-			$CanvasLayer2/Root3.kill_root()
+			$CanvasLayer2/RootGuy/Root.kill_root()
+			$CanvasLayer2/RootGuy/Root2.kill_root()
+			$CanvasLayer2/RootGuy/Root3.kill_root()
 			
-			$CanvasLayer2/Root.grow_root(Root.Root.FILTER)
-			$CanvasLayer2/Root2.grow_root(Root.Root.FILTER)
-			$CanvasLayer2/Root3.grow_root(Root.Root.FILTER)
+			$CanvasLayer2/RootGuy/Root.grow_root(Root.Root.FILTER)
+			$CanvasLayer2/RootGuy/Root2.grow_root(Root.Root.FILTER)
+			$CanvasLayer2/RootGuy/Root3.grow_root(Root.Root.FILTER)
 		elif slide == 5:
-			$CanvasLayer2/Root.kill_root()
-			$CanvasLayer2/Root2.kill_root()
-			$CanvasLayer2/Root3.kill_root()
+			$CanvasLayer2/RootGuy/Root.kill_root()
+			$CanvasLayer2/RootGuy/Root2.kill_root()
+			$CanvasLayer2/RootGuy/Root3.kill_root()
 			
-			$CanvasLayer2/Root.grow_root(Root.Root.EATER)
-			$CanvasLayer2/Root2.grow_root(Root.Root.EATER)
-			$CanvasLayer2/Root3.grow_root(Root.Root.EATER)
+			$CanvasLayer2/RootGuy/Root.grow_root(Root.Root.EATER)
+			$CanvasLayer2/RootGuy/Root2.grow_root(Root.Root.EATER)
+			$CanvasLayer2/RootGuy/Root3.grow_root(Root.Root.EATER)
 		elif slide == 6:
-			$CanvasLayer2/Root.kill_root()
-			$CanvasLayer2/Root2.kill_root()
-			$CanvasLayer2/Root3.kill_root()
+			$CanvasLayer2/RootGuy/Root.kill_root()
+			$CanvasLayer2/RootGuy/Root2.kill_root()
+			$CanvasLayer2/RootGuy/Root3.kill_root()
 			$CanvasLayer5/Node2D2.visible = true
 			
 		$CanvasLayer5/RichTextLabel.text = text[slide]

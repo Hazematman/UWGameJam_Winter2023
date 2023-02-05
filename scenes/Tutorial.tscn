@@ -40,34 +40,40 @@ node_path = NodePath("../../CanvasLayer2/RootGuy")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="Tree" parent="CanvasLayer2" instance=ExtResource( 7 )]
-position = Vector2( 652, 342 )
+[node name="RootGuy" parent="CanvasLayer2" instance=ExtResource( 2 )]
 
-[node name="Tree2" parent="CanvasLayer2" instance=ExtResource( 7 )]
-position = Vector2( 904, 326 )
-
-[node name="Tree3" parent="CanvasLayer2" instance=ExtResource( 7 )]
-position = Vector2( 1095, 343 )
-
-[node name="Root" parent="CanvasLayer2" instance=ExtResource( 8 )]
-position = Vector2( 735, 612 )
-player_path = NodePath("../RootGuy")
-tree_path = NodePath("../Tree")
-can_click = false
-
-[node name="Root2" parent="CanvasLayer2" instance=ExtResource( 8 )]
-position = Vector2( 930, 631 )
-player_path = NodePath("../RootGuy")
-tree_path = NodePath("../Tree2")
-can_click = false
-
-[node name="Root3" parent="CanvasLayer2" instance=ExtResource( 8 )]
+[node name="Root3" parent="CanvasLayer2/RootGuy" instance=ExtResource( 8 )]
 position = Vector2( 1103, 629 )
-player_path = NodePath("../RootGuy")
+z_index = 0
+player_path = NodePath("..")
 tree_path = NodePath("../Tree3")
 can_click = false
 
-[node name="RootGuy" parent="CanvasLayer2" instance=ExtResource( 2 )]
+[node name="Root2" parent="CanvasLayer2/RootGuy" instance=ExtResource( 8 )]
+position = Vector2( 930, 631 )
+z_index = 0
+player_path = NodePath("..")
+tree_path = NodePath("../Tree2")
+can_click = false
+
+[node name="Root" parent="CanvasLayer2/RootGuy" instance=ExtResource( 8 )]
+position = Vector2( 735, 612 )
+z_index = 0
+player_path = NodePath("..")
+tree_path = NodePath("../Tree")
+can_click = false
+
+[node name="Tree3" parent="CanvasLayer2/RootGuy" instance=ExtResource( 7 )]
+position = Vector2( 1095, 343 )
+z_index = -1
+
+[node name="Tree2" parent="CanvasLayer2/RootGuy" instance=ExtResource( 7 )]
+position = Vector2( 904, 326 )
+z_index = -1
+
+[node name="Tree" parent="CanvasLayer2/RootGuy" instance=ExtResource( 7 )]
+position = Vector2( 652, 342 )
+z_index = -1
 
 [node name="CanvasLayer5" type="CanvasLayer" parent="."]
 

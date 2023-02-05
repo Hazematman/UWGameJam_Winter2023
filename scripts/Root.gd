@@ -123,7 +123,7 @@ func tick():
 	life -= 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if current_root != null:
 		if can_die and life <= 0.0:
 			kill_root()

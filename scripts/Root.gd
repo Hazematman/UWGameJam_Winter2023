@@ -51,6 +51,7 @@ export(NodePath) var tree_path
 onready var tree = get_node(tree_path)
 
 export(bool) var can_click = true
+export(bool) var can_die = true
 
 const root_asset = {
 	Root.BASIC : preload("res://scenes/RootBasic.tscn"),
@@ -109,7 +110,7 @@ func _input(event):
 func _process(delta):
 	if current_root != null:
 		life -= delta
-		if life <= 0.0:
+		if can_die and life <= 0.0:
 			kill_root()
 			
 

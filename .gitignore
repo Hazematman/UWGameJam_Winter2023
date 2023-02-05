@@ -371,3 +371,7 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 *.lnk
+
+export_windows
+export_linux
+export_mac

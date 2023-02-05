@@ -39,7 +39,7 @@ const biome_graphics = {
 var progress = 0.0
 var current_biome = Biome.FOREST
 
-export(float) var progression_rate = 0.001
+export(float) var progression_rate = 1.0 / 8.0
 
 export(NodePath) var node_path
 onready var character = get_node(node_path)
@@ -84,7 +84,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	progress += progression_rate
+	progress += delta*progression_rate
 	if progress >= 1.0:
 		change_biome()
 		progress = 0.0

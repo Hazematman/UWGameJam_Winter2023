@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/BiomeController.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/RootGuy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/Roots game 1.png" type="Texture" id=3]
+[ext_resource path="res://assets/Paper background.png" type="Texture" id=4]
+[ext_resource path="res://scripts/Tutorial.gd" type="Script" id=5]
+[ext_resource path="res://assets/QTLondonScroll.otf" type="DynamicFontData" id=6]
+[ext_resource path="res://scenes/Tree.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Root.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/WaterBar.tscn" type="PackedScene" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 72
+font_data = ExtResource( 6 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+layer = 6
+
+[node name="Border" type="Sprite" parent="CanvasLayer3"]
+z_index = 10
+texture = ExtResource( 3 )
+offset = Vector2( 960, 540 )
+
+[node name="CanvasLayer4" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="Sprite" parent="CanvasLayer4"]
+texture = ExtResource( 4 )
+offset = Vector2( 960, 540 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BiomeController" parent="CanvasLayer" instance=ExtResource( 1 )]
+progression_rate = 0.0
+node_path = NodePath("../../CanvasLayer2/RootGuy")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Tree" parent="CanvasLayer2" instance=ExtResource( 7 )]
+position = Vector2( 652, 342 )
+
+[node name="Tree2" parent="CanvasLayer2" instance=ExtResource( 7 )]
+position = Vector2( 904, 326 )
+
+[node name="Tree3" parent="CanvasLayer2" instance=ExtResource( 7 )]
+position = Vector2( 1095, 343 )
+
+[node name="Root" parent="CanvasLayer2" instance=ExtResource( 8 )]
+position = Vector2( 735, 612 )
+player_path = NodePath("../RootGuy")
+tree_path = NodePath("../Tree")
+can_click = false
+
+[node name="Root2" parent="CanvasLayer2" instance=ExtResource( 8 )]
+position = Vector2( 930, 631 )
+player_path = NodePath("../RootGuy")
+tree_path = NodePath("../Tree2")
+can_click = false
+
+[node name="Root3" parent="CanvasLayer2" instance=ExtResource( 8 )]
+position = Vector2( 1103, 629 )
+player_path = NodePath("../RootGuy")
+tree_path = NodePath("../Tree3")
+can_click = false
+
+[node name="RootGuy" parent="CanvasLayer2" instance=ExtResource( 2 )]
+
+[node name="CanvasLayer5" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="Label" parent="CanvasLayer5"]
+margin_left = 132.0
+margin_top = 73.0
+margin_right = 1832.0
+margin_bottom = 496.0
+custom_colors/font_color = Color( 0.462745, 0.384314, 0.176471, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Text"
+align = 1
+
+[node name="Node2D2" parent="CanvasLayer5" instance=ExtResource( 9 )]
+node_path = NodePath("../../CanvasLayer2/RootGuy")
+tracking_property = "water"

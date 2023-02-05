@@ -19,5 +19,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	$Light2D.position.y = start_pos.y + size.y * (1.0 - source_node[tracking_property])

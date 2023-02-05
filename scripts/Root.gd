@@ -39,14 +39,18 @@ var root = null
 var current_root = null
 var life = 0
 
-export(NodePath) var card_path
-onready var card_selector = get_node(card_path)
+# Use more complicated logic on the card path because we want it to
+# be null when we use roots in the tutorial
+export(NodePath) var card_path = null
+onready var card_selector = get_node(card_path) if card_path != null else null
 
 export(NodePath) var player_path
 onready var player = get_node(player_path)
 
 export(NodePath) var tree_path
 onready var tree = get_node(tree_path)
+
+export(bool) var can_click = true
 
 const root_asset = {
 	Root.BASIC : preload("res://scenes/RootBasic.tscn"),
@@ -82,18 +86,19 @@ func grow_root(type):
 		$AudioStreamPlayer.play()
 	
 func kill_root():
-	remove_child(root)
-	root.queue_free()
-	root = null
-	current_root = null
-	tree.kill()
+	if root != null:
+		remove_child(root)
+		root.queue_free()
+		root = null
+		current_root = null
+		tree.kill()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player.register_root(self)
 
 func _input(event):
-	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
+	if can_click and event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
 		if mouse_over and root == null:
 			card_selector.set_root(self)
 

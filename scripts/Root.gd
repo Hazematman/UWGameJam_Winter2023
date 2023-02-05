@@ -39,8 +39,8 @@ var root = null
 var current_root = null
 var life = 0
 
-export(NodePath) var card_path
-onready var card_selector = get_node(card_path)
+export(NodePath) var card_path = null
+onready var card_selector = get_node(card_path) if card_path != null else null
 
 export(NodePath) var player_path
 onready var player = get_node(player_path)
@@ -84,11 +84,12 @@ func grow_root(type):
 		$AudioStreamPlayer.play()
 	
 func kill_root():
-	remove_child(root)
-	root.queue_free()
-	root = null
-	current_root = null
-	tree.kill()
+	if root != null:
+		remove_child(root)
+		root.queue_free()
+		root = null
+		current_root = null
+		tree.kill()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

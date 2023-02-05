@@ -14,8 +14,8 @@ enum Biome {
 
 const biome_drain_rate = {
 	Biome.FOREST : 1.9 * Root.root_gain[Root.Root.BASIC],
-	Biome.DESERT : 2.5 * Root.root_gain[Root.Root.FILTER],
-	Biome.OCEAN : 1.9 * Root.root_gain[Root.Root.FILTER],
+	Biome.DESERT : 1.0 * Root.root_gain[Root.Root.BASIC] + 1.5 * Root.root_gain[Root.Root.FILTER],
+	Biome.OCEAN : 2.0 * Root.root_gain[Root.Root.BASIC] + 1.0 * Root.root_gain[Root.Root.FILTER],
 }
 
 const biome_colors = {

@@ -4,6 +4,8 @@ extends Node2D
 func _ready():
 	if has_node("Score"):
 		$Score.text = "Score: %.1f" % Global.score
+	else:
+		OS.set_window_maximized(true)
 
 
 func _on_Button_pressed():

@@ -48,6 +48,8 @@ onready var player = get_node(player_path)
 export(NodePath) var tree_path
 onready var tree = get_node(tree_path)
 
+export(bool) var can_click = true
+
 const root_asset = {
 	Root.BASIC : preload("res://scenes/RootBasic.tscn"),
 	Root.FILTER : preload("res://scenes/RootFilter.tscn"),
@@ -93,7 +95,7 @@ func _ready():
 	player.register_root(self)
 
 func _input(event):
-	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
+	if can_click and event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
 		if mouse_over and root == null:
 			card_selector.set_root(self)
 

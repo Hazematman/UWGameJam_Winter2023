@@ -9,3 +9,8 @@ func _ready():
 func _on_Button_pressed():
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://scenes/TestScene.tscn")
+
+
+func _on_Tutorial_pressed():
+	# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://scenes/Tutorial.tscn")

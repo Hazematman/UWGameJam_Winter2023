@@ -39,10 +39,10 @@ func run_root_logic():
 	for root in roots:
 		if root.current_root != null:
 			# Basic roots are useless in ocean
-			if biome.current_biome == Biome.Biome.OCEAN and root.current_root == Root.Root.BASIC:
-				continue
-			else:
-				drain -= Root.root_gain[root.current_root]
+			#if biome.current_biome == Biome.Biome.OCEAN and root.current_root == Root.Root.BASIC:
+			#	continue
+			#else:
+			drain -= Root.root_gain[root.current_root]
 				
 			grow += Root.root_grow_rate[root.current_root]
 		

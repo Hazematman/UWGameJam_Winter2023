@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/BiomeController.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/RootGuy.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/Tree.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/Root.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/WaterBar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/NBar.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 72
@@ -48,6 +49,7 @@ z_index = 0
 player_path = NodePath("..")
 tree_path = NodePath("../Tree3")
 can_click = false
+can_die = false
 
 [node name="Root2" parent="CanvasLayer2/RootGuy" instance=ExtResource( 8 )]
 position = Vector2( 930, 631 )
@@ -55,6 +57,7 @@ z_index = 0
 player_path = NodePath("..")
 tree_path = NodePath("../Tree2")
 can_click = false
+can_die = false
 
 [node name="Root" parent="CanvasLayer2/RootGuy" instance=ExtResource( 8 )]
 position = Vector2( 735, 612 )
@@ -62,6 +65,7 @@ z_index = 0
 player_path = NodePath("..")
 tree_path = NodePath("../Tree")
 can_click = false
+can_die = false
 
 [node name="Tree3" parent="CanvasLayer2/RootGuy" instance=ExtResource( 7 )]
 position = Vector2( 1095, 343 )
@@ -90,3 +94,7 @@ align = 1
 [node name="Node2D2" parent="CanvasLayer5" instance=ExtResource( 9 )]
 node_path = NodePath("../../CanvasLayer2/RootGuy")
 tracking_property = "water"
+
+[node name="Node2D3" parent="CanvasLayer5" instance=ExtResource( 10 )]
+node_path = NodePath("../../CanvasLayer2/RootGuy")
+tracking_property = "nutrient"

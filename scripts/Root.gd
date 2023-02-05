@@ -12,7 +12,7 @@ enum Root {
 
 const root_gain = {
 	Root.BASIC : 0.001,
-	Root.FILTER : 0.005,
+	Root.FILTER : 0.003,
 	Root.EATER : 0.0
 }
 
@@ -24,8 +24,8 @@ const root_grow_rate = {
 
 const root_cost = {
 	Root.BASIC : 0.1,
-	Root.FILTER : 0.2,
-	Root.EATER : 0.3,
+	Root.FILTER : 0.4,
+	Root.EATER : 0.4,
 }
 
 const root_lifespan = {
@@ -51,6 +51,7 @@ export(NodePath) var tree_path
 onready var tree = get_node(tree_path)
 
 export(bool) var can_click = true
+export(bool) var can_die = true
 
 const root_asset = {
 	Root.BASIC : preload("res://scenes/RootBasic.tscn"),
@@ -109,7 +110,7 @@ func _input(event):
 func _process(delta):
 	if current_root != null:
 		life -= delta
-		if life <= 0.0:
+		if can_die and life <= 0.0:
 			kill_root()
 			
 
